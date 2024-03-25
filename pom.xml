@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>net.vjdv</groupId>
 	<artifactId>nginxloghub</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>nginxloghub</name>
 	<description>Concentrate nginx logs to a file</description>
 	<properties>
