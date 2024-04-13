@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
 @Service
 public class ServerListener {
 
-    private static final Pattern pattern = Pattern.compile("^(\\S+) (\\S+) - (\\S+) \\[(\\S+) \\S+] \"(\\S+) (\\S+) (\\S+)\" (\\d+) (\\d+) \"(\\S+)\" \"(\\S+)\" (\\S+) (\\S+)$");
+    private static final Pattern pattern = Pattern.compile("^(\\S+) (\\S+) - (\\S+) \\[(\\S+) \\S+] \"(\\S+) (\\S+) (\\S+)\" (\\d+) (\\d+) \"(.+)\" \"(.+)\" (\\S+) (\\S+)$");
     private final ExecutorService executor = Executors.newCachedThreadPool();
     private ServerSocket serverSocket;
     private final int port;
