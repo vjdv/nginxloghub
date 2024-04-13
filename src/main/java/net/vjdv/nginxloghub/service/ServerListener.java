@@ -57,15 +57,20 @@ public class ServerListener {
                     continue;
                 }
                 //parse log line
-                LogEntry logEntry = getLogEntry(matcher);
-                //ignoring some resources
-                if ("POST /xapis/generar-estadisticas".equals(logEntry.resource())
-                        || "axios status checker".equals(logEntry.userAgent())
-                        || logEntry.userAgent().contains("Uptime-Kuma")) {
-                    continue;
+                try {
+                    LogEntry logEntry = getLogEntry(matcher);
+                    //ignoring some resources
+                    if ("POST /xapis/generar-estadisticas".equals(logEntry.resource())
+                            || "axios status checker".equals(logEntry.userAgent())
+                            || logEntry.userAgent().contains("Uptime-Kuma")) {
+                        continue;
+                    }
+                    //write log line to file
+                    LogWriter.append(logEntry);
                 }
-                //write log line to file
-                LogWriter.append(logEntry);
+                catch (Exception ex) {
+                    log.error("Error parsing log line", ex);
+                }
             }
         }
         catch (IOException ex) {
